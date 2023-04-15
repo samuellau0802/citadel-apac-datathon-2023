@@ -1,11 +1,17 @@
 ## Report Outline
 Our ultimate target is to investigate how to allocate traffic policy resources to reduce the effect of car crashes within the city.
-Q1: 
-Explore the occurrence of car crashes visually from geographic locations and also conduct some hypothesis tests to examine some potential influential features
-Q2:
- Investigate deeper into these specific features, which will involve more severe car crashes through regression models
-Q3:
- Combining previous findings to construct a mathematical model to determine the allocation of the traffic police station
+
+Q1: Do high-frequency car crashes have prominent geographical concentration characteristics, and what are the potential impact factors?
+
+To do: Explore the occurrence of car crashes visually from geographic locations and also conduct some hypothesis tests to examine some potential influential features
+
+Q2: Considering the frequency of car crashes and the accident's severity, what factors will affect it?
+
+To do: Investigate deeper into these specific features, which will involve more severe car crashes through regression models
+
+Q3: How can we provide recommendations on how to improve road safety within Philadelphia?
+
+To do: Combining previous findings to construct a mathematical model to determine the allocation of the traffic police station
 
 ### EDA, Visualization
 1. Heatmap
