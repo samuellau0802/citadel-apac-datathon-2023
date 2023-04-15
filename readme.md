@@ -20,7 +20,7 @@ To do: Combining previous findings to construct a mathematical model to determin
 
 ### Hypothesis Testing
 - We selectively choose 1-2 features and test their correlation to car crashes (severity/frequency)
-(hypothesis tests (e.g., t-test) for ROAD_CONDITION, ILLUMINATION, WEATHER with respect to the number of car crashes (y label))
+(hypothesis tests (e.g., t-test) for like ROAD_CONDITION, ILLUMINATION, WEATHER with respect to the number of car crashes (y label))
 
 ### Data Preprocessing
 - Link car crash, crime, and traffic stop data using police district
