@@ -7,6 +7,9 @@ To do: Explore the occurrence of car crashes visually from geographic locations 
 
 Q2: Considering the frequency of car crashes and the accident's severity, what factors will affect it?
 
+Q2(by lsy): Does the reponse time of traffic police have effect on the accidents' severity?
+To do(by lsy): do some hypothesis testing. If it does, try to find the quantitative relation between these two.
+
 To do: Investigate deeper into these specific features, which will involve more severe car crashes through regression models
 
 Q3: How can we provide effective recommendations on how to improve road safety within Philadelphia?
