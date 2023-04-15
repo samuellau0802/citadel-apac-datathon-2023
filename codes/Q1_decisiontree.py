@@ -81,3 +81,9 @@ if p_values > 0.05 and p_value > 0.05:
     print('fail to reject the null hypothesis that the residuals are indenpendent')
     print('reject the null hypothesis that the mean of residuals are zero')
     print('Hence, the residuals are independent and have zero mean')
+  
+features = pd.DataFrame(X.columns.to_list())
+features['importance'] = importance
+features = features.set_index(features.columns[0])
+features = features.sort_values('importance',ascending=False)
+features.to_csv('feature_importance_decision_tree_numCarCrashes.csv')
