@@ -2,7 +2,7 @@
 
 ### EDA, Visualization
 1. Heatmap
-2. Feature Importance
+2. Feature Importance 
 3. Map visuals
 
 ### Data Preprocessing
@@ -12,6 +12,7 @@
 
 ### Hypothesis Testing
 - We selectively choose 1-2 features and test their correlation to car crash (severity/frequency)
+(step one: hypothesis tests for URBAN_RURAL,ROAD_CONDITION,ILLUMINATION with respect the number of car crashes(y label))
 
 ### Model Fitting
 1. x: feature matrix from the data preprocessing part
