@@ -4,7 +4,7 @@ import datetime
 from scipy import stats
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('C:/Users/lsy/Downloads/APAC_2023_Datasets/APAC_2023_Datasets/Crashes/crash_info_general.csv')
+data = pd.read_csv('APAC_2023_Datasets/Crashes/crash_info_general.csv')
 data2 = data.loc[:, lambda d: d.columns.str.contains('COUNT') | d.columns.str.contains('TM')
                               |d.columns.str.contains('CRN') | d.columns.str.contains('TIME')]
 data2 = data2.set_index('CRN')
@@ -80,11 +80,18 @@ data_call = data_call.dropna(axis = 0,how = 'any')
 
 
 # Spearman correlation
-result_tot = pd.DataFrame(data_tot_res.corr('spearman').iloc[:,0])
+result_tot = data_tot_res.corr('spearman').iloc[:,0]
 result_res = pd.DataFrame(data_res.corr('spearman').iloc[:,0])
 result_call = pd.DataFrame(data_call.corr('spearman').iloc[:,0])
 
+corr_series = result_tot.drop('TOT_RES_TM_min', axis=0)
+sorted_corr = corr_series.reindex(corr_series.abs().sort_values(ascending=False).index)
+sorted_corr = sorted_corr.drop('COUNTY',axis = 0)
+
 #p_value
+result_tot = pd.DataFrame(result_tot)
+
+
 p_tot = stats.spearmanr(data_tot_res).pvalue[:,0]
 p_res = stats.spearmanr(data_res).pvalue[:,0]
 p_call = stats.spearmanr(data_call).pvalue[:,0]
@@ -106,15 +113,24 @@ result_call = result_call.dropna(axis = 0,how = 'any')
 correlated_tot = result_tot.loc[result_tot['p_value'] < 0.005,:].sort_values('p_value')
 correlated_res = result_res.loc[result_res['p_value'] < 0.005,:].sort_values('p_value')
 correlated_call = result_call.loc[result_call['p_value'] < 0.005,:].sort_values('p_value')
+#
+# plt.figure(1)
+# plt.hist(np.asarray(time_tot_res))
+# plt.title('Total response time')
+#
+# plt.figure(2)
+# plt.hist(np.asarray(time_res))
+# plt.title('Response time from depatch')
+#
+# plt.figure(3)
+# plt.hist(np.asarray(time_call))
+# plt.title('Time between occurrence and dispatch')
 
-plt.figure(1)
-plt.hist(np.asarray(time_tot_res))
-plt.title('total response time')
-
-plt.figure(2)
-plt.hist(np.asarray(time_res))
-plt.title('Response time from depatch')
-
-plt.figure(3)
-plt.hist(np.asarray(time_call))
-plt.title('Time between occurrence and dispatch')
+sorted_corr = sorted_corr[0:len(correlated_tot)]
+plt.figure(figsize=(10, 5))
+sorted_corr.plot(kind='barh', color='y')
+plt.xlabel('Correlation Coefficient')
+plt.ylabel('Features')
+plt.title('Correlation Coefficients with Total Response Time')
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+plt.show()
