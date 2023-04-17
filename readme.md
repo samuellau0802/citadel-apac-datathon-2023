@@ -19,8 +19,7 @@ To do: Combining previous findings to construct a mathematical model to determin
 ### EDA, Visualization
 1. Heatmap
 2. Map visuals
-3. Feature Importance 
-### Hypothesis Testing
+3. Hypothesis Testing
 - We selectively choose 1-2 features and test their correlation to car crashes (severity/frequency)
 (hypothesis tests (e.g., t-test) for like ROAD_CONDITION, ILLUMINATION, WEATHER with respect to the number of car crashes (y label))
 
